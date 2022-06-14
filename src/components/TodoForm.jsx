@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function TodoForm() {
+function TodoForm({ dispatch }) {
   const [content, setContent] = useState("")
 
   return (
@@ -14,7 +14,13 @@ function TodoForm() {
         name="textIpnut"
         id="textIpnut"
       />
-      <button>Ajouter</button>
+      <button
+        onClick={() =>
+          dispatch({ type: "ADD_TODO", payload: { content, status: false } })
+        }
+      >
+        Ajouter
+      </button>
     </>
   )
 }
